@@ -8,7 +8,19 @@
         <router-link-active v-bind:to="{name:'Results'}">Results</router-link-active>
       </li>
     </ul>
-    <h2>{{ message }}</h2>
+    <h2>Playlist for keyword {{ message }}</h2>
+    <ol>
+      <li>placeholder</li>
+      <li>placeholder</li>
+      <li>placeholder</li>
+      <li>placeholder</li>
+      <li>placeholder</li>
+      <li>placeholder</li>
+      <li>placeholder</li>
+      <li>placeholder</li>
+      <li>placeholder</li>
+      <li>placeholder</li>
+    </ol>
   </div>
 </template>
 
@@ -16,7 +28,7 @@
   export default {
     data () {
       return {
-        message: 'This component works.'
+        message: 'term'
       }
     }
   }
@@ -24,7 +36,14 @@
 
 <style scoped>
   .component {
-    background: #e8e8e8;
     min-height: 400px;
+  }
+  ul.nav {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0;
+  }
+  li {
+  margin: 0 10px;
   }
 </style>
