@@ -3,7 +3,7 @@
     
     <ul class="nav">
       <li>
-        <router-link-active v-bind:to="{name:'Search'}">Search</router-link-active>
+        <router-link v-bind:to="{name:'Search'}">Search</router-link>
       </li>
       <li>
         <router-link v-bind:to="{name:'Results'}">Results</router-link>
@@ -14,11 +14,16 @@
     <h3>Generate a random playlist by entering a keyword:</h3>
     
     <form v-on:submit.prevent="Search">
-      <input type="text" placeholder="Keyword"><button type="submit">Submit</button>
+      <input type="text" v-model="term" placeholder="Keyword"><button type="submit">Submit</button>
     </form>
     
     <div v-if="results" class="results">
-      <router-link v-bind:to="{ name: 'Results' }">{{ results.answer }}</router-link>
+     <!--for later <router-link v-bind:to="{ name: 'Results' }">{{ results.answer }}</router-link> -->
+      <ul id="results">
+        <li v-for="result in results">
+          {{ result.trackName }}
+        </li>
+      </ul>
     </div>
 
     <ul v-else-if="errors.length > 0" class="errors">
@@ -38,12 +43,14 @@ export default {
     return {
       prediction: null,
       errors: [],
+      results: [],
+      term: ''
     }
   },
   methods: {
     Search: function() {
       axios.get("https://itunes.apple.com/search", {
-        params: { term: this.artist}
+        params: { term: this.term}
       })
       .then( response => {
         this.results = response.data.results;
