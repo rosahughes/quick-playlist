@@ -49,15 +49,31 @@ export default {
   },
   methods: {
     Search: function() {
-      axios.get("https://itunes.apple.com/search", {
-        params: { term: this.term}
-      })
-      .then( response => {
-        this.results = response.data.results;
-      })
-      .catch( error => {
-        this.errors.push(error);
-      }); 
+      // axios.get("https://itunes.apple.com/search", {
+      //   params: { term: this.term}
+      // })
+      // .then( response => {
+      //   this.results = response.data.results;
+      // })
+      // .catch( error => {
+      //   this.errors.push(error);
+      // }); 
+      let term=this.term;
+      let self=this;
+    $.ajax({
+    url: "https://itunes.apple.com/search",
+    dataType: "jsonp",
+    data: {
+      term: term
+     },
+     error: function(jqXHR, textStatus, message) {
+      console.log(message);
+     },
+     success: function(data, textStatus, jqXHR) {
+     console.log(data);
+     self.results = data.results;
+      }
+     });
     }
   }
 }
