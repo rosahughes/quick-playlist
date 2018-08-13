@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Search from '@/components/Search'
-import Results from '@/components/Results'
+import Results from '@/components/About'
 
 Vue.use(Router)
 
@@ -13,8 +13,8 @@ export default new Router({
       component: Search
     },
     {
-      path: '/results',
-      name: 'Results',
+      path: '/about',
+      name: 'About',
       component: Results
     }
   ]

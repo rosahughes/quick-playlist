@@ -6,7 +6,7 @@
         <router-link v-bind:to="{name:'Search'}">Search</router-link>
       </li>
       <li>
-        <router-link v-bind:to="{name:'Results'}">Results</router-link>
+        <router-link v-bind:to="{name:'About'}">About</router-link>
       </li>
     </ul>
     
@@ -79,15 +79,15 @@ export default {
     }
   }
 }
-</script> 
+</script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1, h2 {
   font-weight: normal;
 }
 ul {
   list-style-type: none;
+  display: inline-block;
   padding: 0;
 }
 li {
