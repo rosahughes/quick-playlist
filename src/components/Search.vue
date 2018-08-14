@@ -1,17 +1,13 @@
 <template>
   <div class="hello">
     
-    <ul class="nav">
-      <li>
-        <router-link v-bind:to="{name:'Search'}">Search</router-link>
-      </li>
-      <li>
-        <router-link v-bind:to="{name:'About'}">About</router-link>
-      </li>
-    </ul>
     
-    <h1>QuickPlaylist: for an instant set of tunes</h1>
-    <h3>Generate a random playlist by entering a keyword:</h3>
+    
+    <h1>QuickPlaylist: instant set of tunes</h1>
+
+    <hr>
+
+    <p>Generate a random playlist by entering a keyword:</p>
     
     <form v-on:submit.prevent="Search">
       <input type="text" v-model="term" placeholder="Keyword"><button type="submit">Submit</button>
@@ -87,7 +83,6 @@ h1, h2 {
 }
 ul {
   list-style-type: none;
-  display: inline-block;
   padding: 0;
 }
 li {
