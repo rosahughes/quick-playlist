@@ -1,9 +1,8 @@
 <template>
   <div class="hello">
     
-    
-    
-    <h1>QuickPlaylist: instant set of tunes</h1>
+  
+    <h1>QuickPlaylist: instant tunes</h1>
 
     <hr>
 
@@ -14,7 +13,6 @@
     </form>
     
     <div v-if="results" class="results">
-     <!--for later <router-link v-bind:to="{ name: 'Results' }">{{ results.answer }}</router-link> -->
       <ul id="results">
         <li v-for="result in results">
           {{ result.trackName }}
