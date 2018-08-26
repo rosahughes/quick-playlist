@@ -46,7 +46,7 @@ export default {
       // TODO: check cache for term from result, if found assign to results, otherwise run axios and cache it
 
       // axios.get("https://itunes.apple.com/search", {
-      //   params: { term: this.term}
+      //   params: { term: this.term, kind:"song", limit:20 }
       // })
       // .then( response => {
       //   this.results = response.data.results;
@@ -60,7 +60,7 @@ export default {
     url: "https://itunes.apple.com/search",
     dataType: "jsonp",
     data: {
-      term: term, limit:20
+      term: term, kind:"song", limit:20
      },
      error: function(jqXHR, textStatus, message) {
       console.log(message);
