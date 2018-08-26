@@ -15,7 +15,7 @@
     <div v-if="results" class="results">
       <ul id="results">
         <li v-for="result in results">
-          {{ result.trackName }}
+          <a target="_blank" v-bind:href="result.trackViewUrl">{{ result.trackName }}</a>, by artist <a target="_blank" v-bind:href="result.artistViewUrl">{{ result.artistName }}</a>
         </li>
       </ul>
     </div>
