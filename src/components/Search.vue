@@ -2,7 +2,7 @@
   <div class="hello">
     
   
-    <h1>QuickPlaylist: instant tunes</h1>
+    <h1>Quick Playlist</h1>
 
     <hr>
 
@@ -43,33 +43,15 @@ export default {
   },
   methods: {
     Search: function() {
-      // TODO: check cache for term from result, if found assign to results, otherwise run axios and cache it
-
-      // axios.get("https://itunes.apple.com/search", {
-      //   params: { term: this.term, kind:"song", limit:20 }
-      // })
-      // .then( response => {
-      //   this.results = response.data.results;
-      // })
-      // .catch( error => {
-      //   this.errors.push(error);
-      // }); 
-      let term=this.term;
-      let self=this;
-    $.ajax({
-    url: "https://itunes.apple.com/search",
-    dataType: "jsonp",
-    data: {
-      term: term, kind:"song", limit:20
-     },
-     error: function(jqXHR, textStatus, message) {
-      console.log(message);
-     },
-     success: function(data, textStatus, jqXHR) {
-     console.log(data);
-     self.results = data.results;
-      }
-     });
+      axios.get("https://itunes.apple.com/search", {
+      params: { term: this.term, kind:"song", entity:"song", limit:20 }
+      })
+      .then( response => {
+      this.results = response.data.results;
+      })
+      .catch( error => {
+      this.errors.push(error);
+      }); 
     }
   }
 }
